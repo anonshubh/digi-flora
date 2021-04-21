@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2 class="mt-2 text-center">Create a New Device</h2>
+<a href="{% url 'monitor:index' %}">Back To Home</a>
+<hr>
+<div class="row">
+    <div class="col-lg-6 col-sm-12">
+        <form action="{% url 'monitor:create-device' %}" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input class="btn btn-success my-2" type="submit" value="Create">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

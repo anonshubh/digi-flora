@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mt-2 text-center">New Device with ID {{device_obj.unique_id}} Created!</h2>
+<hr>
+<div class="card">
+    <div class="card-body">
+      <p>Device Name: {{device_obj.device_name}}</p>
+      <p>Device ID: {{device_obj.unique_id}}</p>
+      <p>Location: {{device_obj.location}}</p>
+    </div>
+</div>
+
+{% endblock %}
