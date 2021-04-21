@@ -14,7 +14,7 @@ class Plant(models.Model):
     temperature = models.PositiveIntegerField()
     humidity = models.PositiveIntegerField()
     light = models.PositiveIntegerField()
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return (self.name)[:15]
