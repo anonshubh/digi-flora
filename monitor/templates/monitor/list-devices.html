@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mt-2 text-center">List Of Devices Available For {{request.user.username}}</h2>
+<hr>
+{% for device in devices %}
+<div class="card">
+    <div class="row">
+        <div class="col-lg-10 col-sm-12">
+            <div class="card-body">
+              <p>Device Name: {{device.device_name}}</p>
+              <p>Device ID: {{device.unique_id}}</p>
+              <p>Location: {{device.location}}</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-sm-12">
+            <a class="btn btn-success btn-sm ms-2 my-3" href="">Plant Statistics</a>
+        </div>
+    </div>
+</div>
+{% empty %}
+<p class="lead">No Devices Found!</p>
+{% endfor %}
+
+{% endblock %}

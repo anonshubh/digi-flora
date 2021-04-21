@@ -37,3 +37,10 @@ def create_device(request):
             messages.error(request,"Form is Invalid! ,Kindly Re-Submit")
     return render(request,'monitor/create-device.html',{'form':form})
 
+
+# Returns the List of Available Devices of Particular User
+@login_required
+def list_devices_view(request):
+    devices = Device.objects.filter(user=request.user,active=True)
+    return render(request,'monitor/list-devices.html',{'devices':devices})
+
