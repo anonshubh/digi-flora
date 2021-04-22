@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mt-2 text-center">Data Received From Sensor - Tabular View</h2>
+<hr>
+<p>Device ID: {{device_obj.unique_id}}</p>
+<p>Location : {{device_obj.location}}</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Temperature</th>
+        <th scope="col">Moisture</th>
+        <th scope="col">Humidity</th>
+        <th scope="col">Light</th>
+        <th scope="col">Timestamp</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for each in plants_data %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{each.temperature}}</td>
+        <td>{{each.moisture}}</td>
+        <td>{{each.humidity}}</td>
+        <td>{{each.light}}</td>
+        <td>{{each.timestamp|date:'d-m-Y H:i'}}</td>
+      </tr>
+      {% empty %}
+      <p class="lead">No Data Yet!</p>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

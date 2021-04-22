@@ -67,3 +67,15 @@ def receive_plant_data_api(request):
         return JsonResponse({"Success":"Plant Data Successfully Received!"},status=200)
 
     return HttpResponseNotAllowed()
+
+
+# Displays the Plant Data Stored in db
+@login_required
+def display_plant_data(request,unique_id):
+    device_obj = get_object_or_404(Device,unique_id=unique_id)
+    plants_data = device_obj.plant.all()
+    context = {
+        'device_obj':device_obj,
+        'plants_data':plants_data
+    }
+    return render(request,'monitor/plant-data.html',context=context)
