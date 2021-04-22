@@ -65,7 +65,7 @@ if __name__ == '__main__':
     while True:
         sensor1()
         sensor2()
-        time.sleep(10)
+        time.sleep(900)
     
 
 
