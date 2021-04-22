@@ -25,9 +25,7 @@ def sensor1():
 
         json_data = json.dumps(data)
 
-        response = requests.post(
-            # "http://digiflora.herokuapp.com/api/plant-data/",
-            "http://127.0.0.1:8000/api/plant-data/",data=json_data,headers=headers)
+        response = requests.post("http://digiflora.herokuapp.com/api/plant-data/",data=json_data,headers=headers)
         print(f"Status {response.status_code}")
     except:
         print("\nExiting due to Error...")
@@ -35,7 +33,7 @@ def sensor1():
 
 def sensor2():
     try:
-        name = "Sunflower"
+        name = "Rose"
         device_id = "SRD03"
         temperature = random.randint(5,50)
         humidity = random.randint(15,40)
@@ -55,9 +53,7 @@ def sensor2():
 
         json_data = json.dumps(data)
 
-        response = requests.post(
-            # "http://digiflora.herokuapp.com/api/plant-data/",
-            "http://127.0.0.1:8000/api/plant-data/",data=json_data,headers=headers)
+        response = requests.post("http://digiflora.herokuapp.com/api/plant-data/",data=json_data,headers=headers)
         print(f"Status {response.status_code}")
     except:
         print("\nExiting due to Error...")
