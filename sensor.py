@@ -14,6 +14,17 @@ def sensor1():
 
         headers = {'Content-Type':'application/json'}
 
+        data_moisture = {'value1':moisture}
+
+        try:
+            if(moisture<30 and moisture>10):
+                response_gmail = requests.post(
+                    'https://maker.ifttt.com/trigger/moisture_plant/with/key/fQ4f1iZlmNheWnwWPPnNW73iaHDrt_RaXxoxlNxlOeE',
+                    data = data_moisture
+                )
+        except:
+            pass
+
         data={
             'name':name,
             'device_id':device_id,
@@ -39,6 +50,17 @@ def sensor2():
         humidity = random.randint(15,40)
         light = random.randint(2,10)
         moisture = random.randint(50,100)
+
+        data_moisture = {'value1':moisture}
+
+        try:
+            if(moisture<30 and moisture>10):
+                response_gmail = requests.post(
+                    'https://maker.ifttt.com/trigger/moisture_plant/with/key/fQ4f1iZlmNheWnwWPPnNW73iaHDrt_RaXxoxlNxlOeE',
+                    data = data_moisture
+                )
+        except:
+            pass
 
         headers = {'Content-Type':'application/json'}
 
