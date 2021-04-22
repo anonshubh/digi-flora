@@ -15,6 +15,11 @@ def index(request):
     return render(request,'monitor/index.html')
 
 
+# Renders the Index Page
+def about(request):
+    return render(request,'about.html')
+
+
 # Creates a New Device
 @login_required
 def create_device(request):
